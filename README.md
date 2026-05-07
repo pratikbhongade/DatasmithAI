@@ -6,6 +6,12 @@ Upload a PDF and ask a question → it answers. Upload audio → it transcribes 
 
 ---
 
+## Architecture
+
+![DataSmith AI Architecture](assets/architecture.png)
+
+---
+
 ## What it can do
 
 - handles text, PDF, image (jpg/png), audio (mp3/wav/m4a), and youtube links

@@ -93,5 +93,4 @@ ehthumbs.db
 $RECYCLE.BIN/
 
 # ── Presentation / Large Assets ───────────────
-# Comment out if you want to track the pptx
-DataSmith_AI_Presentation.pptx
+# pptx is intentionally tracked (presentation deck)
