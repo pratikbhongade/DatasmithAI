@@ -1,8 +1,3 @@
-# =============================================
-# DataSmith AI — .gitignore
-# =============================================
-
-# ── Environment & Secrets ─────────────────────
 .env
 .env.*
 !.env.example
@@ -10,7 +5,7 @@
 *.key
 secrets/
 
-# ── Python ────────────────────────────────────
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -29,7 +24,7 @@ lib/
 lib64/
 MANIFEST
 
-# ── Virtual Environments ──────────────────────
+
 .venv/
 venv/
 env/
@@ -38,7 +33,7 @@ ENV/
 .venv.bak/
 venv.bak/
 
-# ── Testing & Coverage ────────────────────────
+
 .pytest_cache/
 .cache/
 htmlcov/
@@ -50,18 +45,17 @@ coverage.xml
 nosetests.xml
 pytest.xml
 
-# ── Jupyter / IPython ─────────────────────────
 .ipynb_checkpoints
 *.ipynb
 
-# ── Type Checking ─────────────────────────────
+
 .mypy_cache/
 .dmypy.json
 dmypy.json
 .pytype/
 .pyre/
 
-# ── Vector DB / Local Data ────────────────────
+
 qdrant_db/
 *.db
 *.sqlite
@@ -69,14 +63,14 @@ qdrant_db/
 chroma_db/
 faiss_index/
 
-# ── Uploads & Temp Files ──────────────────────
+
 uploads/
 tmp/
 temp/
 *.tmp
 *.log
 
-# ── IDE / Editor ──────────────────────────────
+
 .idea/
 .vscode/
 *.swp
@@ -85,12 +79,10 @@ temp/
 Thumbs.db
 desktop.ini
 
-# ── OS ────────────────────────────────────────
+
 .DS_Store
 .AppleDouble
 .LSOverride
 ehthumbs.db
 $RECYCLE.BIN/
 
-# ── Presentation / Large Assets ───────────────
-# pptx is intentionally tracked (presentation deck)
