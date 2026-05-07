@@ -1,0 +1,97 @@
+# =============================================
+# DataSmith AI — .gitignore
+# =============================================
+
+# ── Environment & Secrets ─────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+MANIFEST
+
+# ── Virtual Environments ──────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env/
+.venv.bak/
+venv.bak/
+
+# ── Testing & Coverage ────────────────────────
+.pytest_cache/
+.cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+nosetests.xml
+pytest.xml
+
+# ── Jupyter / IPython ─────────────────────────
+.ipynb_checkpoints
+*.ipynb
+
+# ── Type Checking ─────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+
+# ── Vector DB / Local Data ────────────────────
+qdrant_db/
+*.db
+*.sqlite
+*.sqlite3
+chroma_db/
+faiss_index/
+
+# ── Uploads & Temp Files ──────────────────────
+uploads/
+tmp/
+temp/
+*.tmp
+*.log
+
+# ── IDE / Editor ──────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── OS ────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+ehthumbs.db
+$RECYCLE.BIN/
+
+# ── Presentation / Large Assets ───────────────
+# Comment out if you want to track the pptx
+DataSmith_AI_Presentation.pptx
