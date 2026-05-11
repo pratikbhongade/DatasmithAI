@@ -8,6 +8,11 @@ class Settings(BaseSettings):
     # LLM Settings
     GROQ_API_KEY: Optional[str] = None
     GROQ_MODEL_NAME: str = "llama-3.3-70b-versatile"
+    GROQ_MAX_TOKENS: int = 1024
+    GROQ_TOOL_MAX_TOKENS: int = 512
+    GROQ_MAX_RETRIES: int = 2
+    GROQ_REQUESTS_PER_SECOND: float = 1.0
+    GROQ_SERVICE_TIER: str = "on_demand"
     
     # Model Costs (Groq Llama 3.3 70B pricing: ~$0.59 per 1M input tokens)
     INPUT_TOKEN_COST: float = 0.00000059
@@ -26,8 +31,7 @@ class Settings(BaseSettings):
     PDF_OCR_THRESHOLD: int = 50
     
     # Agent Hyperparameters
-    LLM_PLANNER_TEMPERATURE: float = 0.0
-    LLM_EXECUTOR_TEMPERATURE: float = 0.2
+    LLM_AGENT_TEMPERATURE: float = 0.1
 
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
 

@@ -1,6 +1,4 @@
-# =============================================
-# DataSmith AI — .gitignore
-# =============================================
+
 
 # ── Environment & Secrets ─────────────────────
 .env
@@ -37,6 +35,7 @@ ENV/
 .env/
 .venv.bak/
 venv.bak/
+node_modules/
 
 # ── Testing & Coverage ────────────────────────
 .pytest_cache/
@@ -91,6 +90,3 @@ desktop.ini
 .LSOverride
 ehthumbs.db
 $RECYCLE.BIN/
-
-# ── Presentation / Large Assets ───────────────
-# pptx is intentionally tracked (presentation deck)

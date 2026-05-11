@@ -1,0 +1,26 @@
+{
+  "name": "datasmith-ai",
+  "version": "1.0.0",
+  "description": "An agentic AI app I built that takes text, images, PDFs, audio files or YouTube links and figures out what to do with them.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratikbhongade/DatasmithAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pratikbhongade/DatasmithAI/issues"
+  },
+  "homepage": "https://github.com/pratikbhongade/DatasmithAI#readme",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

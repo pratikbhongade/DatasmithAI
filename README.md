@@ -30,8 +30,6 @@ Upload a PDF and ask a question → it answers. Upload audio → it transcribes 
 
 app/
 ├── agents/
-│   ├── planner.py         # figures out user intent
-│   ├── executors.py       # runs the actual tasks
 │   ├── orchestrator.py    # ties everything together
 │   ├── prompts.py         # all the LLM prompts in one place
 │   └── cost_estimator.py

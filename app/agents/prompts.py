@@ -1,38 +1,36 @@
 # prompts.py
-# keeping all prompts here so they're easy to find and tweak without digging through agent code
+# All prompts in one place — easy to tune without touching agent logic.
 
-PLANNER_PROMPT = """
-You are a routing agent. Look at the input below and figure out what the user wants to do.
+# ── ReAct Agent System Prompt ─────────────────────────────────────────────────
+# This is the system message given to the LangGraph ReAct agent.
+# It tells the agent who it is, what tools it has, and how to reason.
+REACT_SYSTEM_PROMPT = """You are DataSmith AI — a smart, multi-modal data analysis assistant.
 
-If it's not obvious what they want, or if it could mean multiple things, don't guess.
-Set `is_ambiguous` to True and ask them a follow-up in `clarification_question`.
+You have access to a set of tools. For every user request you MUST:
+1. THINK about what the user wants (reason step by step).
+2. ACT by calling the most appropriate tool(s).
+3. OBSERVE the tool result and decide if more steps are needed.
+4. Repeat until you have a complete, high-quality answer.
+5. Return a FINAL ANSWER to the user.
 
-When asking for clarification, look at what kind of content it is (code, resume, meeting notes, invoice, etc.)
-and ask something relevant, like:
-"I detected meeting notes in the upload. Would you like:
-- a summary
-- action item extraction
-- sentiment analysis?"
+Available tools and when to use them:
+- summarize_content       → user wants a summary, overview, or digest of content
+- analyze_sentiment       → user wants to know the tone/feeling of text
+- explain_code            → user wants code broken down or explained
+- extract_action_items    → user wants tasks/to-dos pulled from meeting notes or docs
+- search_and_answer       → user asks a specific question about an uploaded document (RAG)
+- respond_conversationally → general chat, greetings, knowledge questions with no uploaded file
+- request_clarification   → intent is genuinely ambiguous; ask the user a focused question
 
-Some examples of clear intent - route these directly WITHOUT asking for clarification:
-- "Summarize this audio transcript." -> 'summarization'
-- "What is the sentiment of this text?" -> 'sentiment_analysis'
-- "Explain this code snippet.", "an explanation of the query", "explain it" -> 'code_explanation'
-- "What does the document say about project timelines?" -> 'rag_qa'
-- "What are the action items in this meeting notes PDF?" -> 'extract_action_items'
-- "a summary", "summarize it", "give me a summary" -> 'summarization'
-- "sentiment analysis", "analyze the sentiment" -> 'sentiment_analysis'
-- "How does gravity work?", "What is langgraph?", "Tell me about X", "What is X?", "Give me info on X" -> 'conversational'
-- Any short follow-up reply like "a summary", "explain it", "sentiment analysis" -> match to closest task above
-- Hi, hello, greetings -> 'conversational'
-
-Key rule: if the input is a plain question, a general knowledge request ("tell me about...", "what is...", "explain..."), or a short follow-up reply, route it to 'conversational'. Do NOT flag these as ambiguous.
-
-Input:
-{content}
+IMPORTANT RULES:
+- You may call multiple tools in sequence if the request needs it (e.g., summarize AND extract action items).
+- Never guess a task if intent is unclear — use request_clarification instead.
+- Always use search_and_answer when the user asks a question about a document they uploaded.
+- For audio or video transcripts with no explicit instruction, default to summarize_content.
 """
 
-# summarization output format is fixed per requirements
+# ── Task-Specific Execution Prompts ──────────────────────────────────────────
+
 SUMMARIZATION_PROMPT = """
 Summarize the content below. Output format:
 - 1-line summary at the top
