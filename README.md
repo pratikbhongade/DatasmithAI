@@ -8,7 +8,32 @@ Upload a PDF and ask a question → it answers. Upload audio → it transcribes 
 
 ## Architecture
 
-![DataSmith AI Architecture](assets/Mermaid Diagram.png)
+```mermaid
+graph TD
+    A[User] --> B[FastAPI Server]
+    B --> C[Extractor Router]
+    C --> D[Agent Orchestrator]
+    D --> E[Tool Execution]
+    E --> F[Groq LLM]
+    F --> G[Streaming Response]
+    
+    C --> H[RAG Service]
+    C --> I[OCR Service]
+    C --> J[Audio Service]
+    C --> K[YouTube Service]
+    
+    H --> L[Qdrant Vector DB]
+    L --> M[BGE-M3 Embeddings]
+    
+    I --> N[Tesseract OCR]
+    J --> O[Whisper STT]
+    K --> P[YouTube Transcript API]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style D fill:#fff3e0
+    style F fill:#e8f5e8
+```
 
 ---
 
