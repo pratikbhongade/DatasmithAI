@@ -8,7 +8,7 @@ Upload a PDF and ask a question → it answers. Upload audio → it transcribes 
 
 ## Architecture
 
-![DataSmith AI Architecture](assets/architecture.png)
+![DataSmith AI Architecture](assets/Mermaid Diagram.png)
 
 ---
 
